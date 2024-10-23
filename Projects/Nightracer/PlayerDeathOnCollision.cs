@@ -5,34 +5,16 @@ public class PlayerDeathOnCollision : MonoBehaviour
 {
     [SerializeField] GameObject _explosionEffect;   
     [SerializeField] private Transform _checkPoint;
-
-     // float for the IEnumerator WaitReset
-
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-        
-        
-        
-    }
+    
     // Called when another collider enters the trigger collider attached to this GameObject
     private void OnTriggerEnter(Collider other)
     {
-       
         // Check if the entering GameObject has the "Checkpoint" tag
         if (other.gameObject.CompareTag("Checkpoint"))
         { 
             // Update the checkpoint reference to the entering GameObject's transform
             _checkPoint = other.transform;
-
         }
-
-        
-       
     }
 
 // Called when this collider collides with another collider
@@ -48,7 +30,6 @@ public class PlayerDeathOnCollision : MonoBehaviour
         {
             // Start the WaitExplode coroutine
             StartCoroutine(WaitExplode()); 
-
         }
     }
 
